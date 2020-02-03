@@ -30,7 +30,27 @@ string Money::processChange() {
 // convert float to change
 // return results
 string Money::processFloat() {
-    return "";
+cin >> total;
+    stringstream floatStream;
+    hundreds = (total / 100);
+    total = total - (hundreds * 100);
+    tens = (total / 10.0);
+    total = total - (tens * 10);
+    fives = (total / 5.0);
+    total = total - (fives * 5);
+    ones = (total / 1.0);
+    total = total - (ones);
+    quarters = (total / .25);
+    total = total - (quarters * .25);
+    dimes = (total / .1);
+    total = total - (dimes * .1);
+    nickels = (total / .05);
+    total = total - (nickels * .05);
+    cents = (total / .01);
+
+    floatStream << hundreds << " " << tens << " " << fives << " " << ones << " " << quarters << " " << dimes
+            << " " << nickels << " " << cents;
+    return floatStream.str();
 }
 
 // read from stdin and process check command
